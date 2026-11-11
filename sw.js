@@ -1,5 +1,5 @@
-/* Gym: cache para funcionar sem internet. Versão: 2026-11-10 21:30 */
-const V="gym-202611102130";
+/* Gym: cache para funcionar sem internet. Versão: 2026-11-11 paleta Burgundy */
+const V="gym-202611111200";
 const FILES=["./", "index.html", "fonts.css", "jspdf.umd.min.js", "manifest.webmanifest", "icon-180.png", "icon-192.png", "icon-512.png", "figtree-latin-400-normal.woff2", "figtree-latin-500-normal.woff2", "figtree-latin-600-normal.woff2", "figtree-latin-700-normal.woff2", "bricolage-grotesque-latin-500-normal.woff2", "bricolage-grotesque-latin-700-normal.woff2", "bricolage-grotesque-latin-800-normal.woff2"];
 self.addEventListener("install",function(e){e.waitUntil(caches.open(V).then(function(c){return Promise.all(FILES.map(function(u){return c.add(new Request(u,{cache:"reload"}))}))}).then(function(){return self.skipWaiting()}))});
 self.addEventListener("activate",function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==V&&k.indexOf("gym-")===0}).map(function(k){return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
