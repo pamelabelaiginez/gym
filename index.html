@@ -1343,6 +1343,19 @@ html:root:root body .card.absf .btn.ghost{color:rgba(251,234,231,.85)!important;
 .absf .tick{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;background:linear-gradient(160deg,#F07558,#EA6244);box-shadow:0 0 0 6px rgba(234,98,68,.22),0 10px 18px -8px rgba(210,75,46,.9)}
 .absf .tick svg{width:22px;height:22px;color:#FFF6F3}
 .abx.lock .abgo{opacity:.45}
+html:root:root body .dh{flex-wrap:wrap!important;justify-content:flex-start!important;row-gap:8px!important}
+html:root:root body .dh b{text-transform:none!important;font-size:19px!important;white-space:nowrap;flex:1 0 100%}
+html:root:root body .dh .st,html:root:root body .dh .hojeP{white-space:nowrap}
+html:root:root body .phrase .phl{color:#EA6244;font-weight:700}
+html:root:root body .ex.cl{background:#3B0A1F!important;border:0.5px solid rgba(251,234,231,.08)!important;box-shadow:0 10px 18px -14px rgba(0,0,0,.9)!important}
+html:root:root body .ex.cl .exrb .tx{border-left:3px solid #EA6244;padding-left:11px}
+html:root:root body .ex.cl .mv{color:#FBEAE7!important}
+html:root:root body .ex.cl .mv.ld{background:#B9D6FC!important;color:#0C2A4D!important;border-radius:999px;padding:2px 10px!important;font-weight:600!important;font-size:12px;border-left:0!important;margin-left:2px}
+html:root:root body .ex.cl small{gap:8px!important}
+html:root:root body .ex.cl small .mv:first-child{padding-right:10px;border-right:1px solid rgba(251,234,231,.18)}
+html:root:root body .ex.cl .ckc{border:1.5px solid #B9D6FC!important;background:transparent!important}
+html:root:root body .ex.cl .ckc.on{background:#EA6244!important;border-color:#EA6244!important}
+html:root:root body .ex.cl .fgt{background:rgba(251,234,231,.09)!important;box-shadow:inset 0 0 0 0.5px rgba(251,234,231,.18)!important}
 </style>
 <link rel="manifest" href="manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></head>
 
@@ -1394,6 +1407,7 @@ const mins=ms=>Math.max(1,Math.round(ms/60000));
 
 /* ---------- frases do dia ---------- */
 const PHRASES=["Um treino de cada vez. Hoje é o seu.","Constância vale mais que intensidade.","Seu corpo responde ao que você repete.","Começar já é metade do treino.","Força é construída em dias comuns.","Hoje você só precisa aparecer.","Evolução costuma ser silenciosa.","Cada série concluída conta.","Respeite o ritmo, mas mantenha o rumo.","Descansar também faz parte do treino.","Mais forte que ontem, no seu tempo.","Sua única comparação é com a sua versão de ontem.","Um pouco todo dia vale mais que muito de vez em quando.","Boa técnica hoje, mais carga amanhã.","Treinar é um recado de cuidado para você mesma.","A disciplina chega quando a motivação falha.","Você não precisa de pressa, precisa de continuidade.","Foque no movimento e o resultado acompanha.","O treino de hoje é um presente para você amanhã.","Pequenos aumentos de carga viram grandes mudanças.","Respire, ajuste a postura e faça bem feito.","Seu esforço de hoje é invisível agora e óbvio depois.","Não precisa ser perfeito, precisa ser feito.","Aquece, respira e vai.","Sinta o músculo trabalhando em cada repetição.","Quem treina com constância não depende de sorte.","Cuidar do corpo é cuidar da mente.","Hoje é dia de somar.","Cada repetição é um voto na pessoa que você quer ser.","Calma e firmeza: é assim que se evolui.","Escute o corpo: força e cuidado andam juntos.","Progresso não é linha reta, e tudo bem.","Treino feito é compromisso cumprido.","Mais um dia, mais uma chance de superar o último treino.","Você já fez o mais difícil: chegar até aqui.","A recompensa vem para quem repete.","Comece pela primeira série e o resto flui.","Com calma, com técnica, com constância.","Seu ritmo é o ritmo certo.","Termine o treino como quem cumpre uma promessa.","Amanhã você agradece pelo que fizer hoje.","Treine com vontade e descanse sem culpa.","Foque na carga de hoje, o recorde vem depois.","Uma série bem feita vale mais que três apressadas.","Gratidão ao corpo que leva você até a academia."];
+const fmtL=s=>{const d=parse(s),w=d.getDay(),n=DOW[w]+(w>0&&w<6?"-feira":"");return n+", "+d.getDate()+" de "+["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"][d.getMonth()]};
 const phraseFor=d=>PHRASES[Math.floor(parse(d).getTime()/86400000)%PHRASES.length];
 
 /* ---------- animações dos exercícios ---------- */
@@ -1721,7 +1735,7 @@ const PLAN0={
  mk("sex6","Panturrilha no Smith com step",3,12,null,"pan")]}
 };
 const TIER={L:{r:[60,90],n:"Leve"},M:{r:[90,120],n:"Médio"},P:{r:[120,180],n:"Pesado"}};
-const REST_TIER={seg1:"P",sex2:"P",qua1:"P",sex1:"P",seg2:"M",seg3:"M",seg4:"M",ter1:"M",ter2:"M",qui1:"M",qui2:"M",qua2:"M",qua3:"M",qua4:"M",qua5:"M",sex3:"M",sex4:"M",n4_ter_rb:"M",n4_qui_pu:"M",seg5:"L",seg6:"L",ter3:"L",ter4:"L",ter5:"L",qua6:"L",qui3:"L",qui4:"L",qui5:"L",qui6:"L",sex5:"L",sex6:"L",n4_ter_fp:"L"};
+const REST_TIER={seg1:"P",sex2:"P",qua1:"P",sex1:"P",seg2:"M",seg3:"M",seg4:"M",ter1:"M",ter2:"M",qui1:"M",qui2:"M",qua2:"M",qua3:"M",qua4:"M",qua5:"M",sex3:"M",sex4:"M",n4_ter_rb:"M",n4_qui_pu:"M",seg5:"L",seg6:"L",ter3:"L",ter4:"L",ter5:"L",qua6:"L",qui3:"L",qui4:"L",qui5:"L",qui6:"L",sex5:"L",sex6:"L",n4_ter_fp:"L",p5_sex1:"P",p5_ter_tc:"L",p5_qui_elp:"L"};
 function applyTier(x,t){const T=TIER[t];if(!T){x.tier=null;x.r1=null;x.r2=null;x.rest=null;return}x.tier=t;x.r1=T.r[0];x.r2=T.r[1];x.rest=T.r[1]}
 function tierByKey(x){const k=figFor(x.n,x.g);return["hipthrust","legpress","hinge"].indexOf(k)>=0?"P":["latraise","reversefly","curl","pushdown","facepull","cable_abd","calf","abmach","legraise","bicycle","cablecrunch","deadbug","crunch"].indexOf(k)>=0?"L":"M"}
 const REST0={seg1:180,seg2:120,seg3:90,seg4:60,seg5:60,seg6:60,ter1:120,ter2:120,ter3:60,ter4:60,ter5:60,qua1:180,qua2:90,qua3:120,qua4:90,qua5:60,qua6:60,qui1:120,qui2:120,qui3:60,qui4:60,qui5:60,qui6:60,sex1:150,sex2:180,sex3:90,sex4:90,sex5:60,sex6:60};
@@ -1736,6 +1750,18 @@ function build4(old){
    2:{nome:"Superiores",foco:"Costas + ombros + braços",tipo:"sup",fut:true,items:[g("ter1"),g("ter2"),nw("n4_ter_rb","Remada baixa no cabo",3,10,"cos",120),g("ter3"),nw("n4_ter_fp","Face pull",3,12,"omb",60),g("ter5")]},
    4:{nome:"Superiores",foco:"Costas + postura + braços",tipo:"sup",fut:true,items:[g("qui1"),g("qui2"),nw("n4_qui_pu","Pulldown unilateral",3,12,"cos",90),g("ter4"),g("qui4"),g("qui5"),g("qui6")]},
    5:{nome:"Inferiores",foco:"Quadríceps + glúteos",tipo:"inf",items:[g("qua1",{s:4}),g("qua2",{s:4}),g("qua3"),g("sex2"),g("sex4"),g("sex3"),g("sex5")]}
+  }}
+function build5(old){
+  const pool={};for(const k in PLAN0)PLAN0[k].items.forEach(x=>pool[x.id]=clone(x));
+  for(const k in old)(old[k].items||[]).forEach(x=>{pool[x.id]=clone(x)});
+  const g=(id,o)=>Object.assign(clone(pool[id]),o||{});
+  const nw=(id,n,s,r,gr)=>{const x=mk(id,n,s,r,null,gr,{});applyTier(x,REST_TIER[id]);return x};
+  const rdl2=Object.assign(clone(pool.sex1),{id:"p5_sex1"});
+  return{
+   1:{nome:"Inferiores",foco:"Glúteos + posteriores + quadríceps",tipo:"inf",items:[g("qua1",{s:4}),g("seg1",{s:4,r:8}),g("sex1"),g("seg3"),g("seg5"),g("seg4"),g("seg6")]},
+   2:{nome:"Superiores",foco:"Costas + ombros + braços",tipo:"sup",fut:true,items:[g("ter1",{s:4}),g("ter2",{s:4}),g("ter3"),g("ter4"),g("ter5"),nw("p5_ter_tc","Tríceps na polia com corda",3,12,"bra")]},
+   4:{nome:"Superiores",foco:"Costas + postura + braços",tipo:"sup",fut:true,items:[g("qui1",{s:4}),g("qui2",{s:4}),g("qui4"),nw("p5_qui_elp","Elevação lateral na polia",3,12,"omb"),g("qui5"),g("qui6")]},
+   5:{nome:"Inferiores",foco:"Quadríceps + glúteos",tipo:"inf",items:[g("qua2",{s:4}),g("qua3",{s:3}),g("sex2",{s:3,r:10}),rdl2,g("sex4"),g("sex3"),g("sex5")]}
   }}
 const ABS0={
  big:[{id:"c1",n:"Abdominal supra com carga",r:25,l:null},{id:"c2",n:"Abdominal infra (agrupado)",r:25},{id:"c3",n:"Elevação de pernas com toque",r:25},{id:"c4",n:"Russian twist (giro russo)",r:25,l:null}],
@@ -1805,6 +1831,7 @@ function ensure(){
   if((S.core.absV||0)<5){S.core.abs.small.forEach(b=>{const o=ABS0.small.find(x=>x.id===b.id);if(o)b.r=o.r});S.core.absNew=S.core.absNew||todayStr();S.core.absV=5;migrated=true}
   if(!S.core.restV){for(const k in S.core.plan)S.core.plan[k].items.forEach(x=>{if(REST0[x.id]&&(x.rest==null||x.rest===120))x.rest=REST0[x.id]});S.core.restV=2}
   if(!S.core.p4){S.core.archive.push({d:todayStr(),n:"Ficha de 5 dias",plan:clone(S.core.plan)});S.core.plan=build4(S.core.plan);S.core.set.absMap[0]="r";S.core.p4=1;S.core.p4note=true;S.core.sugg={};migrated=true}
+  if(!S.core.p5){S.core.archive.push({d:todayStr(),n:"Ficha de 4 dias (anterior)",plan:clone(S.core.plan)});S.core.plan=build5(S.core.plan);S.core.p5=1;S.core.p4note=false;S.core.p5note=true;migrated=true}
   if(!S.core.dupL){const m={};for(const k in S.core.plan)(S.core.plan[k].items||[]).forEach(x=>{const n=nrm(x.n);if(x.l!=null&&m[n]==null)m[n]=x.l});for(const k in S.core.plan)(S.core.plan[k].items||[]).forEach(x=>{const n=nrm(x.n);if(x.l==null&&m[n]!=null)x.l=m[n]});S.core.dupL=1}
   if(!S.core.absR20){S.core.set.absRest=20;S.core.absR20=1}delete S.core.homeTip;S.ts=S.ts||{core:0};if(S.ts.core==null)S.ts.core=0}
 let FRESH0=false,migrated=false;
@@ -2043,7 +2070,7 @@ function exCard(ex,d,cursor){
   if(fin&&!open)return '<section class="ex cl fin gb-'+ex.g+'" id="ex-'+ex.id+'"><div class="exr">'+ck+'<button class="exrb" data-a="openEx" data-ex="'+ex.id+'" aria-expanded="false"><b>'+esc(name)+'</b><small>'+ex.s+'x'+ex.r+(ex.l!=null?" · "+nf(ex.l)+" "+esc(ex.lab):"")+(pr?" · recorde pessoal":"")+(l&&l.feel?" · "+FEEL[l.feel]:"")+'</small></button></div>'+(ex.id===lastFin&&l&&!l.feel&&d===todayStr()?'<div class="feel" role="group" aria-label="Como foi a carga?"><span>Como foi a carga?</span>'+[1,2,3].map(v=>'<button data-a="feel" data-ex="'+ex.id+'" data-v="'+v+'">'+["","Leve","Na medida","Pesada"][v]+'</button>').join("")+'</div>':"")+'</section>';
   const lastTxt=last?"Última vez: "+(last.load?nf(last.load)+" kg · ":"")+last.done+"/"+last.tot+" séries":"";
   const CHV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
-  if(!open)return '<section class="ex cl gb-'+ex.g+(isCur?" cur":"")+'" id="ex-'+ex.id+'"><div class="exr">'+ck+'<button class="exrb" data-a="openEx" data-ex="'+ex.id+'" aria-expanded="false"><span class="tx"><b>'+esc(name)+'</b><small><span class="mv">'+ex.s+'<i>×</i>'+esc(String(ex.r))+'</span><span class="mv ld">'+(ex.l!=null?nf(ex.l)+" "+esc(ex.lab):"definir carga")+'</span>'+(done>0?'<span class="mv pt">'+done+"/"+tot+' feitas</span>':"")+'</small></span><span class="fgt sm" aria-hidden="true">'+fig(fk,46,true)+'</span><span class="chv" aria-hidden="true">'+CHV+'</span></button></div></section>';
+  if(!open)return '<section class="ex cl gb-'+ex.g+(isCur?" cur":"")+'" id="ex-'+ex.id+'"><div class="exr">'+ck+'<button class="exrb" data-a="openEx" data-ex="'+ex.id+'" aria-expanded="false"><span class="tx"><b>'+esc(name)+'</b><small><span class="mv">'+ex.s+'<i>×</i>'+esc(String(ex.r))+'</span><span class="mv ld">'+(ex.l!=null?nf(ex.l)+" "+esc(ex.lab):"Definir carga")+'</span>'+(done>0?'<span class="mv pt">'+done+"/"+tot+' feitas</span>':"")+'</small></span><span class="fgt sm" aria-hidden="true">'+fig(fk,46,true)+'</span><span class="chv" aria-hidden="true">'+CHV+'</span></button></div></section>';
   const bd=(pr?'<span class="badge pr">Recorde pessoal</span>':"")+(l&&l.sub?'<span class="badge">Trocado hoje</span>':"")+(d>=todayStr()&&missedList(d).some(z=>z.id===ex.id)?'<span class="badge">Pulado semana passada</span>':"");
   let h='<section class="ex op gb-'+ex.g+'" id="ex-'+ex.id+'"><div class="oph"><div class="opt"><span class="opg"><i></i>'+esc(G[ex.g])+'</span><h3 class="exn">'+esc(name)+'</h3>'+(lastTxt||bd?'<div class="opm">'+(lastTxt?'<small>'+esc(lastTxt)+'</small>':"")+bd+'</div>':"")+'</div><button class="fgt lg" data-a="openEx" data-ex="'+ex.id+'" aria-label="Recolher exercício">'+fig(fk,96)+'</button></div><div class="exb">';
   {
@@ -2086,6 +2113,7 @@ function timerCard(l){
   if(l.start)return '<section class="card tm"><div class="row"><div class="sp"><small>Treino em andamento</small><div class="big" id="elapsed">'+hms(Date.now()-l.start)+'</div></div><button class="btn dark" data-a="tFinish">Finalizar</button></div><div class="acts"><button class="btn sm ghost" data-a="tDiscard">Descartar cronômetro</button></div></section>';
   return '<section class="card tm"><div class="row"><div class="sp"><h3>Cronômetro do treino</h3><p class="mute">Toque para começar a contar o tempo.</p></div><button class="btn" data-a="tStart">Iniciar treino</button></div><div class="acts"><button class="btn sm ghost" data-a="tFinish">Marcar como finalizado sem cronômetro</button></div></section>'}
 
+function p5Banner(){if(!S.core.p5note)return"";return '<div class="info"><b>Sua ficha foi atualizada.</b> Pernas na segunda e na sexta, com o quadríceps dividido entre os dois dias, e superiores novos na terça e na quinta, com puxadas e remadas em 4 séries. Suas cargas foram mantidas e a ficha anterior está em Fichas arquivadas.<div class="acts" style="margin-top:8px"><button class="btn sm dark" data-a="p5ok">Entendi</button><button class="btn sm ghost" data-a="p5undo">Voltar à ficha anterior</button></div></div>'}
 function p4Banner(){if(!S.core.p4note)return"";return '<div class="info"><b>Sua semana foi atualizada.</b> Agora são 4 dias de musculação (segunda e sexta de pernas, terça e quinta de costas e braços), quarta de bike moderada ou mobilidade, sábado de bike e domingo de descanso total. A ficha de 5 dias está em Fichas arquivadas.<div class="acts" style="margin-top:8px"><button class="btn sm dark" data-a="p4ok">Entendi</button><button class="btn sm ghost" data-a="p4undo">Voltar à ficha de 5 dias</button></div></div>'}
 function exDone(ex,d){const e=L(d).ex&&L(d).ex[ex.id];if(!e)return false;const w=e.sets.filter(s=>!s.w);return w.length>0&&w.every(s=>s.d)}
 function scrollToEx(id){setTimeout(()=>{const el=document.getElementById("ex-"+id);if(el&&el.scrollIntoView)el.scrollIntoView({behavior:"smooth",block:"start"})},60)}
@@ -2110,12 +2138,12 @@ function dayStatus(d){const l=S.logs[d]||{},p=dayPlan(d),td=todayStr();
   const dn=p.items.filter(x=>exDone(x,d)).length;
   if(dn>0)return{t:(d<td?"Parcial":"Em andamento")+" · "+dn+" de "+p.items.length,c:"part"};
   return d<td?{t:"Não executado",c:"no"}:{t:"Ainda não executado",c:"wait"}}
-function hojeHead(){const st=dayStatus(cur);return'<div class="dh"><b>'+fmt(cur)+'</b><span class="st st-'+st.c+'">'+esc(st.t)+'</span>'+(cur!==todayStr()?'<button class="hojeP" data-a="dtoday" aria-label="Voltar para hoje">Hoje</button>':"")+'</div><p class="phrase tiny">'+esc(phraseFor(cur))+'</p>'}
+function hojeHead(){const st=dayStatus(cur);return'<div class="dh"><b>'+fmtL(cur)+'</b><span class="st st-'+st.c+'">'+esc(st.t)+'</span>'+(cur!==todayStr()?'<button class="hojeP" data-a="dtoday" aria-label="Voltar para hoje">Hoje</button>':"")+'</div><p class="phrase tiny"><span class="phl">Frase do dia:</span> '+esc(phraseFor(cur))+'</p>'}
 function weekStrip(){const wk=mondayOf(cur);return '<div class="wkp" role="group" aria-label="Frequência de treinos"><button class="wka" data-a="hprev" aria-label="Semana anterior">‹</button>'+Array.from({length:7},(_,i)=>{const d=addDays(wk,i),fin=finished(d),lg=S.logs[d],part=!fin&&!!(lg&&lg.ex&&Object.keys(lg.ex).some(k=>!lg.ex[k].skip&&nDone(lg.ex[k])>0));return '<button class="wkd '+(fin?"on":"")+(part?" part":"")+(d===todayStr()?" td":"")+(d===cur?" cu":"")+'" data-a="goDay" data-d="'+d+'" aria-label="'+DOW[parse(d).getDay()]+(fin?", finalizado":part?", em andamento":"")+'"><span class="wkc">'+(fin?I.ok:"")+'</span><small>'+["SEG","TER","QUA","QUI","SEX","SÁB","DOM"][i]+'</small></button>'}).join("")+'<button class="wka" data-a="hnext" aria-label="Próxima semana">›</button></div>'}
 function execInfo(d){const wd=parse(d).getDay(),ds=Object.keys(S.logs).filter(k=>S.logs[k].fin&&parse(k).getDay()===wd).sort();return ds.length?"Executado "+ds.length+(ds.length>1?" vezes":" vez")+", última em "+fdate(ds[ds.length-1]):"Você ainda não realizou esse treino"}
 function vHoje(){
   const p=dayPlan(cur),l=L(cur),wd=parse(cur).getDay(),rec=recovery(cur);let h="";
-  h+=hojeHead()+weekStrip()+recBanner(rec)+deloadBanner()+pendBanner(cur)+unfinBanner(cur);
+  h+=hojeHead()+weekStrip()+p5Banner()+recBanner(rec)+deloadBanner()+pendBanner(cur)+unfinBanner(cur);
   if(!p){
     h+='<section class="hero"><div class="k">'+DOW[wd]+'</div><h1>'+(wd===0?"Descanso":"Dia livre")+'</h1><p>'+(FREEN[wd]||"Sem musculação na ficha. Registre bike, cardio e abdômen.")+'</p>'+chipsHtml(absTarget(cur)?[{t:"Abdominal "+absTarget(cur)+" repetições"}]:[{t:"Descanso total"}])+(wd===0?"":'<button class="btn sm" style="margin-top:12px" data-a="createDay">Criar treino neste dia</button>')+'</section>'}
   else{
@@ -2797,6 +2825,8 @@ document.addEventListener("click",e=>{
       if(["p","c","q","x"].some(k=>e[k]!=null)){S.core.evo=S.core.evo||[];let m=S.core.evo.find(q=>q.d===e.d&&q.s==="manual");if(!m){m={id:"mm"+e.d,d:e.d,s:"manual"};S.core.evo.push(m)}["p","c","q","x"].forEach(k=>{if(e[k]!=null)m[k]=e[k]})}
       modCore();closeSheet();render();toast("Avaliação salva");break}
     case"avalDel":{S.core.aval=(S.core.aval||[]).filter(q=>String(q.id)!==D.id);modCore();closeSheet();render();break}
+    case"p5ok":S.core.p5note=false;modCore();render();break;
+    case"p5undo":{const i=S.core.archive.map(a=>a.n).lastIndexOf("Ficha de 4 dias (anterior)");if(i>=0)S.core.plan=clone(S.core.archive[i].plan);S.core.p5note=false;modCore();toast("Ficha anterior restaurada");render();break}
     case"p4ok":S.core.p4note=false;modCore();render();break;
     case"p4undo":{const i=S.core.archive.map(a=>a.n).lastIndexOf("Ficha de 5 dias");if(i>=0){S.core.plan=clone(S.core.archive[i].plan);S.core.set.absMap[0]="s"}S.core.p4note=false;modCore();toast("Ficha de 5 dias restaurada");render();break}
     case"addEx":addExSheet();break;
